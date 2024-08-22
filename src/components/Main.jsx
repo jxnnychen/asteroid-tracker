@@ -1,6 +1,6 @@
 export default function Main() {
     return (
-        <div className='flex-col gap-10 items-center justify-center text-center max-w-[800px] w-full mx-auto pt-6 pb-10'>   
+        <div className='flex-col gap-10 items-center justify-center text-center max-w-[800px] w-full mx-auto pl-6 pr-6 pt-6 pb-10'>   
           <h1 className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-4'> asteroid tracker </h1>
             <div className='flex items-start text-xs space-x-2 pb-2' style={{ fontFamily: 'Cutive Mono', textAlign:'left'}}>
                 <img 

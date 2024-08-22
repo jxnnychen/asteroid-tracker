@@ -26,11 +26,18 @@ function App() {
   const [asteroids, setAsteroids] = useState([])
   const [selectedDate, setSelectedDate] = useState(getCurrentDate())
   const [selectedAsteroid, setSelectedAsteroid] = useState(null)
+  const apiKey ='DEMO_KEY'
   
-  // Fetch mock data from public folder
+  // Fetch asteroid data from NASA API for selected date
   const fetchAsteroids = async (date) => {
     try {
-      const response = await fetch(`/neoFeed.json`) // fetch() to get file
+      // make request to feed endpoint with selected date
+      const response = await fetch(
+        `https://api.nasa.gov/neo/rest/v1/feed?start_date=${date}&end_date=${date}&api_key=${apiKey}`
+      )
+      if (!response.ok) {
+        throw new Error('Network response was not ok')
+      }
       const data = await response.json(); // parses JSON response
       console.log(data.near_earth_objects[date])
       setAsteroids(data.near_earth_objects[date] || []) // updates state with asteroids from selected date
