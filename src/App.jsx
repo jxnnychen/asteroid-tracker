@@ -3,6 +3,7 @@ import Starfield from 'react-starfield'
 import Main from "./components/Main"
 import DateSelector from './components/DateSelector'
 import AsteroidList from './components/AsteroidList'
+import AsteroidDetails from './components/AsteroidDetails'
 import 'react-datepicker/dist/react-datepicker.css'
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
 
   const [asteroids, setAsteroids] = useState([])
   const [selectedDate, setSelectedDate] = useState(getCurrentDate())
+  const [selectedAsteroid, setSelectedAsteroid] = useState(null)
   
   // Fetch mock data from public folder
   const fetchAsteroids = async (date) => {
@@ -46,20 +48,29 @@ function App() {
     setSelectedDate(date)
   }
 
+  const handleAsteroidClick = (asteroid) => {
+    setSelectedAsteroid(asteroid)
+  }
+
+  const closeAsteroidDetails = () => {
+    setSelectedAsteroid(null);
+  };
+
   return (
     <div className="App">
       <Starfield starCount={2500} starColor={[255, 255, 255]} speedFactor={0.025}/>
       <main className='min-h-screen flex flex-col bg-gradient-to-t from-slate-800 to-slate-950 text-white text-sm sm:text-base'>
         <Main/>
         
-        <div className="p-4 text-center">
+        <div className="text-center">
           <h2 className="text-xl">{asteroids.length} asteroids nearby on <DateSelector onDateChange={handleDateChange} selectedDate={selectedDate} />
           </h2> 
         </div>
         {/* display asteroid list */}
         <div className='items-center justify-center text-center max-w-4xl px-6 pb-8 max-w-[800px] w-full mx-auto p-6'> 
-          <AsteroidList asteroids={asteroids}/> {/* pass fetched asteroids to AsteroidList*/}
+          <AsteroidList asteroids={asteroids} onAsteroidClick={handleAsteroidClick}/> {/* pass fetched asteroids to AsteroidList*/}
         </div>
+        {selectedAsteroid && <AsteroidDetails asteroid={selectedAsteroid} onClose={closeAsteroidDetails} />}
 
       </main>
     </div>

@@ -9,3 +9,8 @@ html {
 * {
   font-family: "Cutive Mono";
 }
+
+span {
+  font-family: inherit;
+  font-weight: inherit;
+}
