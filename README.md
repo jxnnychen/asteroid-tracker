@@ -1,8 +1,22 @@
-# React + Vite
+# 🌠 Asteroid Tracker 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Features
+- Date Selection
+- Asteroid Information
+- Interactive UI
+- Real-Time Data
+- Animated Background
+- Responsive Design
 
-Currently, two official plugins are available:
+# Used
+- React
+- Tailwind CSS
+- React DatePicker
+- NASA's NeoWs API
+- Starfield.js
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Features to be added
+- Date Range Selection
+- Detailed Data, orbit diagrams
+
+live site [here](https://asteroidsnearby.netlify.app/)
